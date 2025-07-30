@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>نظام نقل الموظفين العسكريين المطور : لوحة معلومات تفاعلية</title><link rel="preconnect" href="https://fonts.googleapis.com"></link><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""></link><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet"></link><style>        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .flowchart-step {
+            position: relative;
+            padding-right: 4rem;
+            padding-bottom: 2rem;
+        }
+        .flowchart-step:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            right: 1.7rem;
+            top: 3.5rem;
+            width: 2px;
+            height: 100%;
+            background-color: #ced4da;
+        }
+        .flowchart-icon {
+            position: absolute;
+            right: 0;
+            top: 1rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            border: 2px solid;
+        }
+    </style></head><body class="bg-gray-50"><header class="bg-white shadow-sm sticky top-0 z-50"><div class="container mx-auto px-6 py-4"><h1 class="text-2xl md:text-3xl font-extrabold text-[#2c3e50]">نظام نقل الموظفين العسكريين المطور</h1><p class="text-md text-gray-500">لوحة معلومات تفاعلية لنظام النقاط الشامل</p><p class="text-md text-gray-500">اعداد وتقديم المقدم/ علي بن معيض المالكي</p></div></header><main class="container mx-auto p-4 md:p-8 mt-8"><section id="intro" class="text-center mb-16"><h2 class="text-4xl font-bold text-[#34495e] mb-4">إطار شامل وعادل لعمليات النقل</h2><p class="max-w-3xl mx-auto text-lg text-gray-600">يهدف هذا النظام المطور إلى توفير آلية شفافة ومنظمة لنقل الموظفين العسكريين، معتمدة على تجميع النقاط كمعيار أساسي للأولوية، مع الموازنة بين الكفاءة الفردية، الالتزام المؤسسي، الظروف الشخصية، والاحتياجات العملياتية.</p></section><section id="eligibility" class="mb-16"><h3 class="text-3xl font-bold text-center text-[#34495e] mb-2">أساسيات الأهلية</h3><p class="text-center text-gray-500 mb-8">قبل البدء بتجميع النقاط، يجب استيفاء شرطين أساسيين.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div class="bg-white p-8 rounded-lg shadow-md border-b-4 border-[#3498db] text-center"><div class="text-6xl font-extrabold text-[#3498db] mb-4">3</div><h4 class="text-2xl font-bold text-gray-800 mb-2">سنوات خدمة إلزامية</h4><p class="text-gray-600">إكمال 36 شهراً كاملاً في الخدمة لضمان اكتساب الخبرة الأساسية والاندماج في بيئة العمل.</p></div><div class="bg-white p-8 rounded-lg shadow-md border-b-4 border-[#e74c3c] text-center"><div class="text-6xl font-extrabold text-[#e74c3c] mb-4">12</div><h4 class="text-2xl font-bold text-gray-800 mb-2">شهراً بسجل تأديبي نظيف</h4><p class="text-gray-600">عدم التعرض لأي عقوبات تأديبية جسيمة خلال الـ 12 شهراً الأخيرة قبل تقديم الطلب.</p></div></div></section><section id="points-system" class="mb-16"><h3 class="text-3xl font-bold text-center text-[#34495e] mb-2">لوحة معلومات نظام النقاط</h3><p class="text-center text-gray-500 mb-8">بعد تحقيق الأهلية، تبدأ رحلة تجميع النقاط عبر خمسة معايير رئيسية.</p><div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div class="bg-white p-6 rounded-lg shadow-md flex flex-col"><h4 class="text-xl font-bold text-[#2c3e50] mb-2">1. نقاط مدة الخدمة في الموقع الحالي</h4><p class="text-gray-600 mb-4 flex-grow">مكافأة الاستقرار والخدمة الطويلة في موقع واحد بنقاط تتزايد قيمتها مع مرور الوقت.</p><div class="chart-container"><canvas id="serviceDurationChart"></canvas></div></div><div class="bg-white p-6 rounded-lg shadow-md flex flex-col"><h4 class="text-xl font-bold text-[#2c3e50] mb-2">2. نقاط الأداء والتقييم السنوي</h4><p class="text-gray-600 mb-4 flex-grow">تحفيز الأداء المتميز والانضباط العسكري عبر منح نقاط للتقييمات العالية وخصمها للعقوبات.</p><div class="chart-container"><canvas id="performanceChart"></canvas></div></div><div class="bg-white p-6 rounded-lg shadow-md flex flex-col"><h4 class="text-xl font-bold text-[#2c3e50] mb-2">3. نقاط الدورات والمؤهلات الإضافية</h4><p class="text-gray-600 mb-4 flex-grow">تشجيع التطوير المهني واكتساب المهارات المتخصصة التي تخدم القطاع العسكري.</p><div class="chart-container"><canvas id="trainingChart"></canvas></div></div><div class="bg-white p-6 rounded-lg shadow-md flex flex-col"><h4 class="text-xl font-bold text-[#2c3e50] mb-2">4. نقاط الظروف العائلية والشخصية</h4><p class="text-gray-600 mb-4 flex-grow">مراعاة الحالات الإنسانية والظروف القاهرة للموظف وأسرته، مما يعكس الجانب الإنساني للنظام.</p><div class="chart-container"><canvas id="familyCircumstancesChart"></canvas></div></div><div class="bg-white p-6 rounded-lg shadow-md lg:col-span-2 flex flex-col items-center"><h4 class="text-xl font-bold text-[#2c3e50] mb-2">5. نقاط الخدمة في المواقع الخاصة</h4><p class="text-gray-600 mb-4 text-center max-w-2xl">تحفيز الخدمة في المواقع ذات التحديات الخاصة (النائية، الصعبة، الخطرة) بمنح نقاط إضافية كبيرة.</p><div class="chart-container h-[300px] md:h-[350px]"><canvas id="specialLocationsChart"></canvas></div></div></div></section><section id="process" class="mb-16"><h3 class="text-3xl font-bold text-center text-[#34495e] mb-2">رحلة طلب النقل</h3><p class="text-center text-gray-500 mb-12">مسار واضح ومنظم لضمان الشفافية والعدالة في كل خطوة.</p><div class="max-w-3xl mx-auto"><div class="flowchart-step"><div class="flowchart-icon text-[#16a085] border-[#16a085] bg-white">1</div><h4 class="text-xl font-bold mb-1 pt-4 text-gray-800">تقديم الطلب</h4><p class="text-gray-600">يتم تقديم الطلب إلكترونياً عبر البوابة المخصصة مع تحديد الرغبات وإرفاق كافة الوثائق الداعمة.</p></div><div class="flowchart-step"><div class="flowchart-icon text-[#2980b9] border-[#2980b9] bg-white">2</div><h4 class="text-xl font-bold mb-1 pt-4 text-gray-800">حساب وتدقيق النقاط</h4><p class="text-gray-600">يقوم النظام بحساب النقاط آلياً، ثم تقوم لجنة مختصة بتدقيقها لضمان الدقة والنزاهة.</p></div><div class="flowchart-step"><div class="flowchart-icon text-[#8e44ad] border-[#8e44ad] bg-white">3</div><h4 class="text-xl font-bold mb-1 pt-4 text-gray-800">تصنيف الطلبات وتحديد الأولوية</h4><p class="text-gray-600">تُصنف الطلبات بناءً على مجموع النقاط. في حال التساوي، تُستخدم معايير كسر التعادل (الأقدمية).</p></div><div class="flowchart-step"><div class="flowchart-icon text-[#d35400] border-[#d35400] bg-white">4</div><h4 class="text-xl font-bold mb-1 pt-4 text-gray-800">مراجعة لجنة النقل المركزية</h4><p class="text-gray-600">تراجع اللجنة الطلبات ذات الأولوية مع الأخذ في الاعتبار الاحتياجات العملياتية والشواغر والتوزيع العادل.</p></div><div class="flowchart-step"><div class="flowchart-icon text-[#c0392b] border-[#c0392b] bg-white">5</div><h4 class="text-xl font-bold mb-1 pt-4 text-gray-800">إصدار قرارات النقل</h4><p class="text-gray-600">بناءً على توصية اللجنة، تصدر قرارات النقل من صاحب الصلاحية، ويتم إبلاغ الموظفين بالنتيجة.</p></div></div></section><section id="guarantees" class="mb-16"><h3 class="text-3xl font-bold text-center text-[#34495e] mb-2">ركائز النظام ومبادئه</h3><p class="text-center text-gray-500 mb-8">يقوم النظام على ضمانات أساسية تكفل فعاليته وعدالته المستمرة.</p><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-5xl mb-4">🔍</div><h4 class="text-xl font-bold text-gray-800 mb-2">الشفافية الكاملة</h4><p class="text-gray-600">نشر المعايير بوضوح، إتاحة سجل النقاط للموظف، وتوضيح أسباب القرارات.</p></div><div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-5xl mb-4">🔄</div><h4 class="text-xl font-bold text-gray-800 mb-2">المراجعة الدورية</h4><p class="text-gray-600">مراجعة شاملة للنظام ومعاييره سنوياً لضمان توافقه مع المتغيرات.</p></div><div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-5xl mb-4">⚖️</div><h4 class="text-xl font-bold text-gray-800 mb-2">آلية التظلم</h4><p class="text-gray-600">حق الموظف في تقديم تظلم رسمي إلى لجنة مراجعة مستقلة في حال وجود خطأ.</p></div><div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-5xl mb-4">⚙️</div><h4 class="text-xl font-bold text-gray-800 mb-2">المرونة العملياتية</h4><p class="text-gray-600">احتفاظ القادة بالمرونة في حالات النقل الاستراتيجية أو الطارئة الموثقة.</p></div><div class="bg-white p-6 rounded-lg shadow-md text-center sm:col-span-2 lg:col-span-1"><div class="text-5xl mb-4">💻</div><h4 class="text-xl font-bold text-gray-800 mb-2">النظام الإلكتروني</h4><p class="text-gray-600">تطوير نظام إلكتروني متكامل لإدارة العملية بالكامل بكفاءة وشفافية.</p></div></div></section></main><footer class="bg-[#2c3e50] text-white text-center py-6 mt-8"><p>تم تطوير هذا العرض التفاعلي بناءً على وثيقة "نظام نقل الموظفين العسكريين المطور".</p><p class="text-sm opacity-75">إعداد وتقديم: المقدم/ علي معيض المالكي</p></footer></body></html>
